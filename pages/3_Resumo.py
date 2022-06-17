@@ -27,7 +27,7 @@ df['DATA DE VALIDADE'] = pd.to_datetime(df['DATA DE VALIDADE'],format='%Y-%m-%d'
 
 df['HOJE'] =pd.to_datetime('today').normalize()
 
-df['DIAS PARA VENCIMENTO'] = int((df['HOJE']-df['DATA DE VALIDADE'])/np.timedelta64(1,'D'))
+df['DIAS PARA VENCIMENTO'] = (df['HOJE']-df['DATA DE VALIDADE'])/np.timedelta64(1,'D')
 
 st.write(df[df['DIAS PARA VENCIMENTO']<=15][['PRODUTO','MARCA DO PRODUTO','QUANTIDADE','UNIDADE DE MEDIDA',
                                    'DATA DE VALIDADE' ,'TIPO DE ENTRADA']])
